@@ -94,6 +94,24 @@ get '/check_syntax' => sub {
     return to_json( { result => $result } );
 };
 
+post '/check_test_exist' => sub {
+    my $data = from_json( param( 'data' ), { utf8 => 0 } );
+    $data->{client_id}      = 'Zonemaster Dancer Frontend';
+    $data->{client_version} = __PACKAGE__->VERSION;
+    $data->{user_ip} = get_ip();
+    $data->{is_test_exist} = 0;
+    
+    my $result = $client->check_test_exist( { frontend_params => {%$data} } );
+    if (@$result) {
+        $data->{is_test_exist} = 1;
+        $data->{id} = $result->[0]->{id};
+        $data->{creation_time} = $result->[0]->{creation_time};
+        $data->{hash_id} = $result->[0]->{hash_id};
+    }
+    content_type 'application/json';
+    return to_json( { result => $data } );
+};
+
 get '/history' => sub {
     my $data = from_json( param( 'data' ), { utf8 => 0 } );
     my $result = $client->get_test_history( { frontend_params => {%$data}, limit => 200, offset => 0 } );
