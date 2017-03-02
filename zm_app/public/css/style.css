@@ -220,3 +220,4 @@ label {
 .footer-ip:after { background-color: #FFF; content: ''; position: absolute; right: 0; bottom: -20px; width: 9px; height: 8px;}
 .btn-primary {background-color: #d14414; border-color: #be3f13;}
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {background-color: #be3f13; border-color: #d14414;}
+.mt-10 {margin-top: 10px;}

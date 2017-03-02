@@ -26,6 +26,17 @@
     <a title="{{'Run test'|translate}}" href="#" onClick="return false;" ng-click="domainCheck();" class="bigbutton"><span class="fa fa-play-circle-o run-btn-icon"></span></a>
   </div>
   <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+    <div class="result ng-hide" ng-show="testInfo.is_test_exist">
+        <h2> {{'Test for this domain is already exist'|translate}}.</h2>
+        <i>{{'Executed at' | translate}} {{ testInfo.creation_time | asDate | date:"yyyy-MM-ddTHH:mmZ" }}</i>
+        <div class="mt-10">
+            {{'Last test url' | translate}}: <a href="{{testInfo.location}}" target="_blank">{{testInfo.location}}</a>
+        </div>
+        <div class="mt-10">
+            {{'Please' | translate}} <a href="javascript: void(0);" ng-click="domainCheck(true);">{{'click here' | translate}}</a> {{'to generate fresh test link' | translate}}.
+        </div>
+        <br />
+    </div>
     <div class="result" ng-show="result">
       <div>
       <h2> {{'Test #'|translate}} {{ test.id }}</h2>

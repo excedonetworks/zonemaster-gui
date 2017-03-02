@@ -314,7 +314,9 @@ dnscheck.directive('domainCheck',function(){
             }
           });
         };
-        $scope.domainCheck = function(){
+        $scope.domainCheck = function(forceReTest){
+                        $scope.testInfo = null;
+                        $scope.result = null;
 			if($scope.inactive) { 
 				$scope.form.nameservers = $scope.ns_list;
 				$scope.form.ds_info = $scope.ds_list;
@@ -328,14 +330,51 @@ dnscheck.directive('domainCheck',function(){
 						alert(data.result.message);
 					}
 					else {
-						$scope.$apply($scope.startTest(data.result));
+                                            if (forceReTest) {
+                                                $scope.$apply($scope.startTest(data.result));
+                                            } else {
+                                                $scope.$apply($scope.checkTestExist(data.result));
+                                            }
 					}
 				},
 				error: function(){
 					alert('Can\'t get syntax test result');
 				}
 			});
-
+                        
+                        $scope.checkTestExist = function (result) {
+				if( (typeof $scope.form.domain === 'undefined') || ($scope.form.domain === '') ){
+					alert('Can\'t run test for unspecified domain name');
+					return;
+				}
+				if( $scope.inactive && ($scope.ns_list.length == 0 || typeof $scope.ns_list[0].ns === 'undefined' ||$scope.ns_list[0].ns === '')  ){
+					alert('Can\'t run test without at least one nameserver specified');
+					return;
+				}
+				$location.path('/');
+				$('.run-btn-icon').removeClass('fa-play-circle-o').addClass('loading');
+				$.ajax('/check_test_exist',{
+                                        data : { data: JSON.stringify($scope.form) },
+					type: 'post',
+					dataType : 'json',
+					success: function(response){
+                                            var data = response.result;
+                                            if (data.is_test_exist) {
+                                                $scope.testInfo = data;
+                                                $scope.testInfo.location = $location.absUrl() + 'test/' + $scope.testInfo.hash_id;
+                                                $scope.contentUrl = '/ang/domain_check';
+                                                $scope.$apply();
+                                                $('.run-btn-icon').addClass('fa-play-circle-o').removeClass('loading');
+                                            } else {
+                                                $scope.$apply($scope.startTest(result));
+                                            }
+					},
+					error: function(){
+						alert('Can\'t run test');
+					}
+				});
+			};
+                        
 			$scope.startTest = function () {
 				$scope.result = null;
 				if( (typeof $scope.form.domain === 'undefined') || ($scope.form.domain === '') ){

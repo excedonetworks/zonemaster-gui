@@ -12,6 +12,12 @@
 ,"Fetch data from parent zone"              : "Fetch data from parent zone"         
 ,"Advanced options"                         : "Advanced options"                    
 ,"Notice! This is an undelegated test"      : "Notice! This is an undelegated test" 
-,"What is an undelegated domain test?"		: "What is an undelegated domain test?"
-,"":""
+,"What is an undelegated domain test?"      : "What is an undelegated domain test?"
+,""                                         : ""
+,"Test for this domain is already exist"    : "Test for this domain is already exist"
+,"Last test url"                            : "Last test url"
+,"Please"                                   : "Please"
+,"click here"                               : "click here"
+,"to generate fresh test link"              : "to generate fresh test link"
 }
+
