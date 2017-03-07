@@ -221,3 +221,5 @@ label {
 .btn-primary {background-color: #d14414; border-color: #be3f13;}
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {background-color: #be3f13; border-color: #d14414;}
 .mt-10 {margin-top: 10px;}
+.alert-dnssec-test-error { background: #FF0000 !important;}
+.alert-dnssec-test-success { background: #008000 !important;}

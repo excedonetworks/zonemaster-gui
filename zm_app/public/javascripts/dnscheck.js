@@ -111,13 +111,16 @@ dnscheck.directive('domainCheck',function(){
   return {
     restrict: 'E',
     transclude: true,
-    scope : { inactive: '@'},
-    controller: ['$rootScope', '$scope', '$window', '$location', function($rootScope, $scope, $window, $location){
+    scope : {
+        inactive: '@',
+        dnssecCheck: '@'
+    },
+    controller: ['$rootScope', '$scope', '$window', '$location', '$log', '$filter', function($rootScope, $scope, $window, $location, $log, $filter){
         $scope.interval = 5000; // 5 sec retry
         $scope.form = {};
         $scope.form.ipv4 = true;
         $scope.form.ipv6 = true;
-		$scope.form.profile = "default_profile";
+	$scope.form.profile = "default_profile";
         $scope.location = $window.location.href;
         var lang;
             if (navigator.userLanguage) // Explorer
@@ -133,6 +136,8 @@ dnscheck.directive('domainCheck',function(){
           $scope.ns_list = [{ns:"",ip:""}];
           //$scope.ds_list = [{algorithm:"", digest:""}];
           $scope.ds_list = [];
+        } else if ($scope.dnssecCheck) {
+            $scope.contentUrl = '/ang/dnssec_check'
         }
         else $scope.contentUrl = '/ang/domain_check'
 
@@ -251,23 +256,36 @@ dnscheck.directive('domainCheck',function(){
             success: function(data){
               $scope.test = { id: data.result.id, creation_time: data.result.creation_time};
               $scope.result = data.result.results;
+
+	      if ($scope.dnssecCheck) {
+                  var dnssecTest = {};
+                  var dnssecInfo = $filter('filter')(data.result.results, { module: "DNSSEC", level: "INFO"});
+                  var dnssecNotice = $filter('filter')(data.result.results, { module: "DNSSEC", level: "NOTICE"});
+                  if (dnssecInfo.length > 0 || dnssecNotice.length > 0) {
+                      dnssecTest.level = 'dnssec-test-success';
+                      dnssecTest.message = 'DNSSEC is enabled for this domain';
+                      dnssecTest.module = 'DNSSEC';
+                  } else {
+                      dnssecTest.level = 'dnssec-test-error';
+                      dnssecTest.message = 'DNSSEC is not enabled for this domain';
+                      dnssecTest.module = 'DNSSEC';
+                  }
+                  data.result.results[0] = dnssecTest;
+                  data.result.results.splice(1);
+              }
+	      
               $scope.getModules(data.result.results);
               $scope.form = data.result.params;
               $scope.ns_list = data.result.params.nameservers;
               $scope.ds_list = data.result.params.ds_info;
-              if (data.result.params.nameservers) {
+              if($scope.inactive) {
                   $scope.contentUrl = '/ang/inactive_domain_check';
-                  if ($rootScope.panes) {
-                      $rootScope.panes[1].selected = true
-                      $rootScope.panes[0].selected = false
-                  }
+              } else if ($scope.dnssecCheck == 'yes') {
+                  $scope.contentUrl = '/ang/dnssec_check'
               } else {
-                  $scope.contentUrl = '/ang/domain_check';
-                  if ($rootScope.panes) {
-                      $rootScope.panes[0].selected = true
-                      $rootScope.panes[1].selected = false
-                  }
+                  $scope.contentUrl = '/ang/domain_check'
               }
+	      
               $scope.$apply();
               $.ajax('/history',{
                 data : { data: JSON.stringify($scope.form) },

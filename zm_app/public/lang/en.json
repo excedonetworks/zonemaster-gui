@@ -19,5 +19,9 @@
 ,"Please"                                   : "Please"
 ,"click here"                               : "click here"
 ,"to generate fresh test link"              : "to generate fresh test link"
+,"DNSSEC test"                              : "DNSSEC test"
+,"DNSSEC is enabled for this domain"        : "DNSSEC is enabled for this domain"
+,"DNSSEC is not enabled for this domain"    : "DNSSEC is not enabled for this domain"
+,"Notice! This is a DNSSEC test"            : "Notice! This is a DNSSEC test"
 }
 

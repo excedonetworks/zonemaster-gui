@@ -27,4 +27,8 @@
 ,"Please"                                   : "Snälla du"
 ,"click here"                               : "Klicka här"
 ,"to generate fresh test link"              : "att generera ny prov länk"
+,"DNSSEC test"                              : "DNSSEC-test",
+,"DNSSEC is enabled for this domain"        : "DNSSEC är aktiverat för den här domänen"
+,"DNSSEC is not enabled for this domain"    : "DNSSEC är inte aktiverat för den här domänen"
+,"Notice! This is a DNSSEC test"            : "Lägga märke till! Detta är en DNSSEC-test"
 }
