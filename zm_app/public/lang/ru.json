@@ -21,7 +21,7 @@
 ,"Please"                                   : "пожалуйста"
 ,"click here"                               : "кликните сюда"
 ,"to generate fresh test link"              : "генерировать свежие ссылку тестовой"
-,"DNSSEC test"                              : "испытание DNSSEC",
+,"DNSSEC test"                              : "испытание DNSSEC"
 ,"DNSSEC is enabled for this domain"        : "DNSSEC включена для этого домена"
 ,"DNSSEC is not enabled for this domain"    : "DNSSEC не включена для этого домена"
 ,"Notice! This is a DNSSEC test"            : "Обратите внимание! Это тест DNSSEC"

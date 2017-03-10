@@ -28,7 +28,7 @@
 ,"Please"                                   : "S'il vous plaît"
 ,"click here"                               : "cliquez ici"
 ,"to generate fresh test link"              : "Générer une nouvelle liaison de test"
-,"DNSSEC test"                              : "Test DNSSEC",
+,"DNSSEC test"                              : "Test DNSSEC"
 ,"DNSSEC is enabled for this domain"        : "DNSSEC est activé pour ce domaine"
 ,"DNSSEC is not enabled for this domain"    : "DNSSEC n'est pas activé pour ce domaine"
 ,"Notice! This is a DNSSEC test"            : "Remarquer! Il s'agit d'un test DNSSEC"

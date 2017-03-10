@@ -260,8 +260,9 @@ dnscheck.directive('domainCheck',function(){
 	      if ($scope.dnssecCheck) {
                   var dnssecTest = {};
                   var dnssecInfo = $filter('filter')(data.result.results, { module: "DNSSEC", level: "INFO"});
-                  var dnssecNotice = $filter('filter')(data.result.results, { module: "DNSSEC", level: "NOTICE"});
-                  if (dnssecInfo.length > 0 || dnssecNotice.length > 0) {
+                  //var dnssecNotice = $filter('filter')(data.result.results, { module: "DNSSEC", level: "NOTICE"});
+                  //if (dnssecInfo.length > 0 || dnssecNotice.length > 0) {
+		  if (dnssecInfo.length > 0) {
                       dnssecTest.level = 'dnssec-test-success';
                       dnssecTest.message = 'DNSSEC is enabled for this domain';
                       dnssecTest.module = 'DNSSEC';
