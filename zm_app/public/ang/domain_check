@@ -79,7 +79,7 @@
           <div class="ng-hide" ng-show="history.length > 0" ng-repeat="item in history">
             <span class="history-{{item.overall_result}} {{item.overall_class}}"></span>&nbsp;<a target="_self" href="/test/{{item.id}}">{{item.creation_time | asDate | date:"yyyy-MM-ddTHH:mmZ"}}</a>
           </div>
-	  <div class="fa fa-spinner fa-spin fa-2x ng-hide" ng-show="history.length <= 0"></div>
+	  <div class="fa fa-spinner fa-spin fa-2x ng-hide" ng-show="history == undefined || history.length <= 0"></div>
         </tab>
       </navigation>
     </div>
