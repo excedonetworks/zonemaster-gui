@@ -22,6 +22,6 @@
 ,"DNSSEC test"                                              : "DNSSEC test"
 ,"DNSSEC is enabled for this domain"                        : "DNSSEC is enabled for this domain"
 ,"DNSSEC is not enabled for this domain"                    : "DNSSEC is not enabled for this domain"
-,"Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC" : "Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC"
+,"Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC" : "Notice! \nThis test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC"
 }
 

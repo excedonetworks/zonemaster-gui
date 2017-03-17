@@ -32,6 +32,6 @@
 ,"DNSSEC is enabled for this domain"                        : "DNSSEC est activé pour ce domaine"
 ,"DNSSEC is not enabled for this domain"                    : "DNSSEC n'est pas activé pour ce domaine"
 ,"Notice! This is a DNSSEC test"                            : "Remarquer! Il s'agit d'un test DNSSEC"
-,"Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC" : "Remarquer! Ce test n'effectuera que le test DNSSEC pour vérifier si le domaine est signé ou non signé avec DNSSEC"
+,"Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC" : "Remarquer! \nCe test n'effectuera que le test DNSSEC pour vérifier si le domaine est signé ou non signé avec DNSSEC"
 }
 

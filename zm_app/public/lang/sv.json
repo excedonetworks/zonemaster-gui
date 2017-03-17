@@ -30,6 +30,6 @@
 ,"DNSSEC test"                                              : "DNSSEC-test"
 ,"DNSSEC is enabled for this domain"                        : "DNSSEC är aktiverat för den här domänen"
 ,"DNSSEC is not enabled for this domain"                    : "DNSSEC är inte aktiverat för den här domänen"
-,"Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC" : "Observera! Denna test kommer endast utföra en DNSSEC test för att kontrollera om domänen är signerad eller ej signerad med DNSSEC"
+,"Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC" : "Observera! \nDenna test kommer endast utföra en DNSSEC test för att kontrollera om domänen är signerad eller ej signerad med DNSSEC"
 }
 
