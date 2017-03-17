@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-10 col-sm-7 col-md-6 col-lg-4">
         <div class="alert alert-info">
-            {{'Notice! This is a DNSSEC test'|translate}}
+            {{'Notice! This test will only perform DNSSEC test to check if the domain is signed or not signed with DNSSEC'|translate}}
         </div>
     </div>
 </div>
