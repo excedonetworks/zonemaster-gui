@@ -196,6 +196,8 @@ dnscheck.directive('domainCheck',function(){
             if( result[item].level=='WARNING') modules[result[item].module] = 'warning';
             if( result[item].level=='ERROR') modules[result[item].module] = 'ban';
             if( result[item].level=='CRITICAL') modules[result[item].module] = 'ban';
+	    if( result[item].module=='DNSSEC' && result[item].level=='NOTICE') { modules[result[item].module] = 'warning'; }
+
           } 
           $scope.modules = modules;
           return Object.keys(modules);
